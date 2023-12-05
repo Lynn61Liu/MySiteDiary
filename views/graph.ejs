@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<head>
+	<title>Deaths</title>
+	<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	<link href= "/stylesheets/style.css" rel="stylesheet" type="text/css" /> 
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+<style>
+body {
+  background-image: url("images/lifeboatrescue.jpg");
+}
+</style>
+</head>
+<body>
+	<div class="container">
+		<ul class="nav nav-tabs" role="tablist">
+			<li class="active"><a href=/>Home</a></li>
+			<li><a href=addincidents>Log an Incident</a></li>
+			<li><a href=getincidents>List Incidents</a></li>
+			<li><a href=deaths>Deaths</a></li>
+			<li><a href=graph>Graph</a></li>
+			<li><a href=videos>Videos</a></li>
+			<li><a href = "https://westauckland.co.nz/beaches/muriwai-beach"/>Muriwai Beach</a></li>        
+		</ul>
+	</div>
+	<div>
+<canvas id="myChart" class="center" style="width:100%;max-width:1150px"></canvas>
+
+<script>
+
+<% 
+	console.log(graphData.length);
+	console.log(graphData[0].year);
+	console.log(graphData[0].number);
+ %>
+ 
+ var xyValues = [
+	{x:<%=graphData[0].year%>, y:<%=graphData[0].number%>},
+	{x:<%=graphData[1].year%>, y:<%=graphData[1].number%>},
+    {x:<%=graphData[2].year%>, y:<%=graphData[2].number%>},
+	{x:<%=graphData[3].year%>, y:<%=graphData[3].number%>},
+	{x:<%=graphData[4].year%>, y:<%=graphData[4].number%>},
+	{x:<%=graphData[5].year%>, y:<%=graphData[5].number%>},
+	{x:<%=graphData[6].year%>, y:<%=graphData[6].number%>}
+];
+
+
+new Chart("myChart", {
+  type: "scatter",
+  data: {
+    datasets: [{
+      pointRadius: 4,
+      pointBackgroundColor: "rgb(0,0,255)",
+      data: xyValues
+    }]
+  },
+  options: {
+    legend: {display: false},
+    scales: {
+      xAxes: [{ticks: {fixedStepSize: 1}}],
+      yAxes: [{ticks: {min: 0, max:100}}],
+    }
+  }
+});
+
+</script>
+</div>
+
+</body>
+</html>

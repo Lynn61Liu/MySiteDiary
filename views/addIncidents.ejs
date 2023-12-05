@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Water incident reporting</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="/stylesheets/style.css" rel="stylesheet" type="text/css" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <style>
+    body {
+      background-image: url("images/muriwai2.jpg");
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <ul class="nav nav-tabs" role="tablist">
+      <li class="active"><a href= />Home</a></li>
+      <li><a href=addincidents>Log an Incident</a></li>
+      <li><a href=getincidents>List Incidents</a></li>
+      <li><a href=deaths>Deaths</a></li>
+      <li><a href=graph>Graph</a></li>
+      <li><a href=videos>Videos</a></li>
+      <li><a href="https://westauckland.co.nz/beaches/muriwai-beach" />Muriwai Beach</a></li>
+    </ul>
+  </div>
+  <div class="container mt-4">
+    <div class="card">
+      <div class="card-body">
+
+        <h3>Report Water Incidents</h3>
+        <form method="POST">
+          <div class="form-group">
+            <label for="beach">Beach Name</label>
+            <input type="text" class="form-control col-lg-9" id="beach" aria-describedby="emailHelp"
+              placeholder="Enter beach name" name="beach">
+          </div>
+          <div class="form-group">
+            <label for="city">Nearest City Name</label>
+            <input type="text" class="form-control col-lg-9" id="city" aria-describedby="emailHelp"
+              placeholder="Enter nearest city name" name="city">
+          </div>
+          <div class="form-group">
+            <label for="email">Email address</label>
+            <input type="email" class="form-control col-lg-9" id="email" aria-describedby="emailHelp" name="email"
+              placeholder="Enter email">
+          </div>
+          <div class="form-group">
+            <label for="detail">Enter incident detail</label>
+            <input type="text" class="form-control col-lg-9" id="detail" aria-describedby="emailHelp"
+              placeholder="Enter nearest city name" name="detail">
+          </div>
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

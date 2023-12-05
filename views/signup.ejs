@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>signup SitaDiary</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	<link href="/stylesheets/style.css" rel="stylesheet" type="text/css" />
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+		integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+		crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+		integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+		crossorigin="anonymous"></script>
+</head>
+
+<body>
+	<div class="container">
+		<div class="logo-box"><img src="images/0Logo.png" width="55" alt="Logo" id="logo"
+				class="d-inline-block align-middle mr-2"></li>
+		</div>
+		<ul class="nav nav-tabs" role="tablist">
+			<li><a href=/ class="text-uppercase font-weight-bold">Home</a></li>
+			<li class="active"><a href=login class="text-uppercase font-weight-bold">Login</a></li>
+			<li><a href=jobAssignment class="text-uppercase font-weight-bold">Job Assignment</a></li>
+			<li><a href=siteDiary class="text-uppercase font-weight-bold">Site Diary</a></li>
+			<li><a href=summary class="text-uppercase font-weight-bold">Summary</a></li>
+			<li><a href=contact class="text-uppercase font-weight-bold">Contact</a></li>
+		</ul>
+	</div>
+	<div class="left-section">
+		<div class="loginOutline">
+			<form class="loginForm" method="post">
+				<div class="form-group">
+					<label for="nameInput">User Name</label>
+					<input type="userName" name="userName" required class="form-control form-control-lg" id="nameInput"
+						placeholder="Please enter full name:">
+				</div>
+
+				<div class="form-group">
+					<label for="exampleInputEmail1">Email address</label>
+					<input type="email" name="email" required class="form-control form-control-lg"
+						id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Please enter email">
+				</div>
+
+				<div class="form-group">
+					<label for="exampleInputPassword1">Password</label>
+					<input type="password" name="password" required class="form-control form-control-lg"
+						id="exampleInputPassword1" placeholder="Please enter password">
+				</div>
+
+				<div class="btn-wrap">
+					<button type="submit" class="btn btn-primary">Submit</button>
+					<button class="btn btn-primary">Cancel</button>
+				</div>
+			</form>
+
+
+		</div>
+		<div class="feedback">
+			<% var loginFailed=loginFailed || false; %>
+				<% var username=username ; %>
+
+					<% if (loginFailed) { %>
+						<p id="StatusMSG">
+							<%= statusMSG %>
+						</p>
+
+						<% } %>
+							<% if (username) { %>
+								<p id="Username">Welcome, <%= username %>!</p>
+								<% } %>
+		</div>
+	</div>
+</body>
+
+</html>

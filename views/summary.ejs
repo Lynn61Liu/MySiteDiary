@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>Summary</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	<link href="/stylesheets/style.css" rel="stylesheet" type="text/css" />
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+		integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+		crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+		integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+		crossorigin="anonymous"></script>
+</head>
+
+<body>
+	<div class="container">
+		<div class="logo-box"><img src="images/0Logo.png" width="55" alt="Logo" id="logo"
+				class="d-inline-block align-middle mr-2"></li>
+		</div>
+		<ul class="nav nav-tabs" role="tablist">
+			<li ><a href=/ class="text-uppercase font-weight-bold">Home</a></li>
+			<li><a href=login class="text-uppercase font-weight-bold">Login</a></li>
+			<li><a href=jobAssignment class="text-uppercase font-weight-bold">Job Assignment</a></li>
+			<li><a href=siteDiary class="text-uppercase font-weight-bold">Site Diary</a></li>
+			<li class="active"><a href=summary class="text-uppercase font-weight-bold">Summary</a></li>
+			<li><a href=contact class="text-uppercase font-weight-bold">Contact</a></li>
+		
+
+		</ul>
+	</div>
+	<div class="left-section">
+		<div class="topInfo">
+
+			<h3>
+				Summary  
+			</h3>
+			<h4 class="user-info">
+				<span id="pageToday">2nd Dec</span>
+				<section class="profileInfo">
+					<span id="userName">
+						<% if (username) { %>
+						  <p ><%= username %></p>
+						  <button id="logoutBtn"> <a href="/logout">Logout</a></button>
+						
+						  <% } else { %>
+						  <p >Guest</p>
+						<% } %>
+					  </span>
+				</section>
+				
+			</h4>
+		</div>
+	<div class="list-section">
+		
+		<% if (username) { %>
+			<div class="d-flex justify-content-center loading-section">
+				<div class="spinner-border" role="status">
+				  <span class="sr-only">Loading...</span>
+				</div>
+			</div>
+		<section class="job-list-wrap">
+			<div class="accordion" id="accordionExample">
+				<div class="card">
+				  <div class="card-header" id="headingOne">
+					<h2 class="mb-0">
+					  <button class="text-dark font-weight-bold btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+						Team Number 1: Xing
+					  </button>
+					</h2>
+				  </div>
+			  
+				  <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+					<div class="card-body">
+						<table class="table">
+							<thead class="thead-dark">
+							  <tr>
+								<th scope="col">Date</th>
+								<th scope="col">Check In</th>
+								<th scope="col">Check Out</th>
+								<th scope="col">Site Address</th>
+								<th scope="col">Weather</th>
+								<th scope="col">Total Working Hours</th>
+								<th scope="col">Unpaid Break</th>
+								<th scope="col">Paid Hours</th>
+							  </tr>
+							</thead>
+							<tbody >
+								<tr >
+									<th scope="col">21 Dec</th>
+									<th scope="col">7:20am</th>
+									<th scope="col">16:23am</th>
+									<th scope="col">222 Mt Wellington</th>
+									<th scope="col">Sunny</th>
+									<th scope="col">11</th>
+									<th scope="col">2</th>
+									<th scope="col">9</th>
+								</tr>
+								<tr>
+									<th scope="col">22s Dec</th>
+									<th scope="col">7:20am</th>
+									<th scope="col">16:23am</th>
+									<th scope="col">222 Mt Wellington</th>
+									<th scope="col">Sunny</th>
+									<th scope="col">11</th>
+									<th scope="col">2</th>
+									<th scope="col">9</th>
+								</tr>
+								<tr>
+									<th scope="col">23 Dec</th>
+									<th scope="col">7:20am</th>
+									<th scope="col">16:23am</th>
+									<th scope="col">222 Mt Wellington</th>
+									<th scope="col">Sunny</th>
+									<th scope="col">11</th>
+									<th scope="col">2</th>
+									<th scope="col">9</th>
+								</tr>
+							
+							  
+							</tbody>
+						  </table>
+						  
+						  
+					</div>
+				  </div>
+				</div>
+				<div class="card">
+					<div class="card-header" id="headingTow">
+					  <h2 class="mb-0">
+						<button class="text-dark font-weight-bold btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseOne">
+						  Team Number 2: Dylan
+						</button>
+					  </h2>
+					</div>
+				
+					<div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo" data-parent="#accordionExample">
+					  <div class="card-body">
+						  <table class="table">
+							  <thead class="thead-dark">
+								<tr>
+								  <th scope="col">Date</th>
+								  <th scope="col">Check In</th>
+								  <th scope="col">Check Out</th>
+								  <th scope="col">Site Address</th>
+								  <th scope="col">Weather</th>
+								  <th scope="col">Total Working Hours</th>
+								  <th scope="col">Unpaid Break</th>
+								  <th scope="col">Paid Hours</th>
+								</tr>
+							  </thead>
+							  <tbody >
+								  <tr >
+									  <th scope="col">21 Dec</th>
+									  <th scope="col">7:20am</th>
+									  <th scope="col">16:23am</th>
+									  <th scope="col">222 Mt Wellington</th>
+									  <th scope="col">Sunny</th>
+									  <th scope="col">11</th>
+									  <th scope="col">2</th>
+									  <th scope="col">9</th>
+								  </tr>
+								  <tr>
+									  <th scope="col">22s Dec</th>
+									  <th scope="col">7:20am</th>
+									  <th scope="col">16:23am</th>
+									  <th scope="col">222 Mt Wellington</th>
+									  <th scope="col">Sunny</th>
+									  <th scope="col">11</th>
+									  <th scope="col">2</th>
+									  <th scope="col">9</th>
+								  </tr>
+								  <tr>
+									  <th scope="col">23 Dec</th>
+									  <th scope="col">7:20am</th>
+									  <th scope="col">16:23am</th>
+									  <th scope="col">222 Mt Wellington</th>
+									  <th scope="col">Sunny</th>
+									  <th scope="col">11</th>
+									  <th scope="col">2</th>
+									  <th scope="col">9</th>
+								  </tr>
+							  
+								
+							  </tbody>
+							</table>
+							
+							
+					  </div>
+					</div>
+				  </div>
+				  <div class="card">
+					<div class="card-header" id="headingThree">
+					  <h2 class="mb-0">
+						<button class="text-dark font-weight-bold btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="true" aria-controls="collapseOne">
+						  Team Number 3: Bob
+						</button>
+					  </h2>
+					</div>
+				
+					<div id="collapseThree" class="collapse show" aria-labelledby="headingThree" data-parent="#accordionExample">
+					  <div class="card-body">
+						  <table class="table">
+							  <thead class="thead-dark">
+								<tr>
+								  <th scope="col">Date</th>
+								  <th scope="col">Check In</th>
+								  <th scope="col">Check Out</th>
+								  <th scope="col">Site Address</th>
+								  <th scope="col">Weather</th>
+								  <th scope="col">Total Working Hours</th>
+								  <th scope="col">Unpaid Break</th>
+								  <th scope="col">Paid Hours</th>
+								</tr>
+							  </thead>
+							  <tbody >
+								  <tr >
+									  <th scope="col">21 Dec</th>
+									  <th scope="col">7:20am</th>
+									  <th scope="col">16:23am</th>
+									  <th scope="col">222 Mt Wellington</th>
+									  <th scope="col">Sunny</th>
+									  <th scope="col">11</th>
+									  <th scope="col">2</th>
+									  <th scope="col">9</th>
+								  </tr>
+								  <tr>
+									  <th scope="col">22s Dec</th>
+									  <th scope="col">7:20am</th>
+									  <th scope="col">16:23am</th>
+									  <th scope="col">222 Mt Wellington</th>
+									  <th scope="col">Sunny</th>
+									  <th scope="col">11</th>
+									  <th scope="col">2</th>
+									  <th scope="col">9</th>
+								  </tr>
+								  <tr>
+									  <th scope="col">23 Dec</th>
+									  <th scope="col">7:20am</th>
+									  <th scope="col">16:23am</th>
+									  <th scope="col">222 Mt Wellington</th>
+									  <th scope="col">Sunny</th>
+									  <th scope="col">11</th>
+									  <th scope="col">2</th>
+									  <th scope="col">9</th>
+								  </tr>
+							  
+								
+							  </tbody>
+							</table>
+							
+							
+					  </div>
+					</div>
+				  </div>
+			  </div>
+		</section>
+		<% } else { %>
+			<p> please Log in account.</p>
+		  <% } %>
+	</div>
+
+	</div>
+</body>
+<script>
+var today=new Date();
+
+var year = today.getFullYear(); // 年份
+var month = today.getMonth() + 1; // 月份（注意：月份是从0开始的，所以要加1）
+var day = today.getDate(); 
+
+var formattedDate = year + '-' + (month < 10 ? '0' : '') + month + '-' + (day < 10 ? '0' : '') + day;
+console.log(formattedDate);
+document.querySelector("#pageToday").innerHTML=formattedDate;
+</script>
+
+</html>

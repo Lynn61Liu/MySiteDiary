@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>Job Assignment</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	<link href="/stylesheets/style.css" rel="stylesheet" type="text/css" />
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+		integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+		integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+		crossorigin="anonymous"></script>
+</head>
+
+<body>
+	<div class="container">
+		<div class="logo-box"><img src="images/0Logo.png" width="55" alt="Logo" id="logo"
+				class="d-inline-block align-middle mr-2"></li>
+		</div>
+		<ul class="nav nav-tabs" role="tablist">
+			<li><a href=/ class="text-uppercase font-weight-bold">Home</a></li>
+			<li><a href=login class="text-uppercase font-weight-bold">Login</a></li>
+			<li class="active"><a href=jobAssignment class="text-uppercase font-weight-bold">Job Assignment</a></li>
+			<li><a href=siteDiary class="text-uppercase font-weight-bold">Site Diary</a></li>
+			<li><a href=summary class="text-uppercase font-weight-bold">Summary</a></li>
+			<li><a href=contact class="text-uppercase font-weight-bold">Contact</a></li>
+
+
+		</ul>
+	</div>
+
+	<div class="left-section">
+		<div class="topInfo">
+
+			<h3>
+				Job Assignment
+			</h3>
+			<h4 class="user-info">
+				<span id="pageToday">Today</span>
+				<span id="userName">
+					<% if (username) { %>
+						<p>
+							<%= username %>
+						</p>
+						<button id="logoutBtn"> <a href="/logout">Logout</a></button>
+
+						<% } else { %>
+							<p>Guest</p>
+							<% } %>
+				</span>
+			</h4>
+		</div>
+		<% if (username) { %>
+			<form class="jobAssignmentForm">
+
+
+
+				<!-- <div class="rowwrap"> -->
+				<div class="form-group">
+					<label for="JobCode">Job Description Code</label>
+					:<input type="text" class="form-control" id="JobCode" name="JobCode">
+				</div>
+				<div class="form-group">
+					<label for="TeamLeader">Team Leader</label>
+					:<input type="text" class="form-control" id="TeamLeader" name="TeamLeader">
+				</div>
+				<div class="form-group">
+					<label for="TeamMember">Team Member</label>
+					:<input type="text" class="form-control" id="TeamMember" name="TeamMember">
+				</div>
+
+				<div class="withoutPadding">
+					<div class="form-group ">
+						<label for="tools">Tools</label>
+						:<textarea type="text" class="form-control" id="tools" name="tools"></textarea>
+					</div>
+					<div class="form-group">
+						<label for="TimeStarts">Time Starts</label>
+						:<input type="datetime-local" class="form-control" id="TimeStarts" name="TimeStarts">
+					</div>
+					<div class="form-group">
+						<label for="TimeEnds">Time Ends</label>
+						:<input type="datetime-local" class="form-control" id="TimeEnds" name="TimeEnds">
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label for="Materials">Materials</label>
+					:<textarea type="text" class="form-control" name="assignmentMaterials"
+						id="assignmentMaterials"></textarea>
+				</div>
+
+				<!-- </div> -->
+
+				<div class="taskList">
+					<h3 id="tasktitle">Task</h3>
+					<div class="taskitem">
+						<div class="tasknumber">1</div>
+						<input type="text" class="form-control taskinput" name="task1" id="task1">
+					</div>
+					<div class="taskitem">
+						<div class="tasknumber">2</div>
+						<input type="text" class="form-control taskinput" name="task2" id="task2">
+					</div>
+					<div class="taskitem">
+						<div class="tasknumber">3</div>
+						<input type="text" class="form-control taskinput" name="task3" id="task3">
+					</div>
+
+				</div>
+
+
+				<div class="submitwrap">
+					<button type="submit" class="btn btn-primary" id="diarysubmit">Submit</button>
+
+				</div>
+
+			</form>
+			<% } else { %>
+				<div>
+					<p> please Log in account.</p>
+				</div>
+
+				<% } %>
+	</div>
+
+</body>
+
+<!-- replace "Today" with real date -->
+<script>
+	var today = new Date();
+
+	var year = today.getFullYear();
+	var month = today.getMonth() + 1;
+	var day = today.getDate();
+
+	var formattedDate = year + '-' + (month < 10 ? '0' : '') + month + '-' + (day < 10 ? '0' : '') + day;
+	console.log(formattedDate);
+	document.querySelector("#pageToday").innerHTML = formattedDate;
+</script>
+
+</html>
