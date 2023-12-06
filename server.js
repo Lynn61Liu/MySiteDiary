@@ -116,7 +116,11 @@ app.get('/contact', function(req, res, next) {
 
 
 app.get('/jobAssignment', function(req, res, next) {
-	res.render('jobAssignment', { title: 'jobAssignment' });
+	db.query("SELECT user_name,user_id FROM users;", function (err, result) {
+				if (err) throw err;
+		 		console.log(result);
+	res.render('jobAssignment', { userData: result });
+});
 });
 
 

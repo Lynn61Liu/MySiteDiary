@@ -57,6 +57,14 @@
 				</span>
 			</h4>
 		</div>
+
+
+
+
+
+
+
+
 		<% if (username) { %>
 			<form class="jobAssignmentForm">
 
@@ -69,17 +77,59 @@
 				</div>
 				<div class="form-group">
 					<label for="TeamLeader">Team Leader</label>
-					:<input type="text" class="form-control" id="TeamLeader" name="TeamLeader">
+					:
+					<!-- <input type="text" class="form-control" id="TeamLeader" name="TeamLeader"> -->
+					<select name="TeamLeader" id="TeamLeader">
+						<option value="">--Please choose an Team Leader--</option>
+
+
+						<% if (userData.length !=0) {var i=1; userData.forEach( function(data) { %>
+							<option value="<%=data.user_id %>">
+								<%=data.user_id %>:<%=data.user_name %>
+							</option>
+							<% i++; }) %>
+								<%}%>
+					</select>
+
 				</div>
 				<div class="form-group">
-					<label for="TeamMember">Team Member</label>
-					:<input type="text" class="form-control" id="TeamMember" name="TeamMember">
+					<label for="TeamMember">Team Member:</label><br>
+
+					<!-- <input type="text" class="form-control" id="TeamMember" name="TeamMember"> -->
+					<% if (userData.length !=0) { var i=1; userData.forEach(function(data) { %>
+						<input type="checkbox" name="selectedUsers" value="<%=data.user_id %>" id="user<%=i%>">
+						<label for="user<%=i%>">
+							<%=data.user_id %>: <%=data.user_name %>
+						</label>
+						<% i++; }) %>
+							<% } %>
+
+
 				</div>
 
 				<div class="withoutPadding">
 					<div class="form-group ">
-						<label for="tools">Tools</label>
-						:<textarea type="text" class="form-control" id="tools" name="tools"></textarea>
+						<label for="tools">Tools</label>: <br>
+
+						<input type="checkbox" name="tools" value="Saw" id="toolSaw">
+						<label for="toolSaw">Saw</label>
+
+						<input type="checkbox" name="tools" value="Chisel" id="toolChisel">
+						<label for="toolChisel">Chisel</label>
+
+						<input type="checkbox" name="tools" value="Plane" id="toolPlane">
+						<label for="toolPlane">Plane</label>
+
+						<input type="checkbox" name="tools" value="Drill" id="toolDrill">
+						<label for="toolDrill">Drill</label>
+
+						<input type="checkbox" name="tools" value="Hammer" id="toolHammer">
+						<label for="toolHammer">Hammer</label>
+
+						<input type="checkbox" name="tools" value="Router" id="toolRouter">
+						<label for="toolRouter">Router</label>
+
+						<!-- <textarea type="text" class="form-control" id="tools" name="tools"></textarea> -->
 					</div>
 					<div class="form-group">
 						<label for="TimeStarts">Time Starts</label>
@@ -92,9 +142,25 @@
 				</div>
 
 				<div class="form-group">
-					<label for="Materials">Materials</label>
-					:<textarea type="text" class="form-control" name="assignmentMaterials"
-						id="assignmentMaterials"></textarea>
+					<label for="Materials">Materials:</label><br>
+					<input type="checkbox" name="Materials" value="Wood" id="materialWood">
+					<label for="materialWood">Wood</label>
+					
+					<input type="checkbox" name="Materials" value="Sandpaper" id="materialSandpaper">
+					<label for="materialSandpaper">Sandpaper</label>
+					
+					<input type="checkbox" name="Materials" value="Wood Glue" id="materialWoodGlue">
+					<label for="materialWoodGlue">Wood Glue</label>
+					
+					<input type="checkbox" name="Materials" value="Nails" id="materialNails">
+					<label for="materialNails">Nails</label>
+					
+					<input type="checkbox" name="Materials" value="Stain" id="materialStain">
+					<label for="materialStain">Stain</label>
+					
+					<input type="checkbox" name="Materials" value="Varnish" id="materialVarnish">
+					<label for="materialVarnish">Varnish</label>
+					
 				</div>
 
 				<!-- </div> -->
