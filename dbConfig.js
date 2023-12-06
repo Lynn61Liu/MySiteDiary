@@ -4,6 +4,10 @@ var conn = mysql.createConnection({
 	user: 'root',      // Replace with your database username
 	password: '',      // Replace with your database password
 	database: 'my_site_diary' // // Replace with your database Name
+	//database: 'db2' // // Replace with your database Name
+
+
+
 }); 
 
 conn.connect(function(err) {
