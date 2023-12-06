@@ -151,21 +151,32 @@ app.post('/jobAssignment', function(req, res, next) {
 
 
 
-
-// app.post('/addIncidents', function(req, res, next) {
-// 	var beach = req.body.beach;
-// 	var city = req.body.city;
-// 	var email = req.body.email;
-// 	var detail = req.body.detail;
-// 	var sql = `INSERT INTO incidents (beach, city, email, detail, reported_at) VALUES ("${beach}", "${city}", "${email}", "${detail}", NOW())`;
-// 	db.query(sql, function(err, result) {
-// 		if (err) throw err;
-// 		console.log('record inserted');
-// 		res.render('addIncidents');
-// 	});
+// app.get('/siteDiary', function(req, res, next) {
+//     db.query("SELECT job_id, job_description_code FROM job_assignment;", function (err, result) {
+//         if (err) throw err;
+        
+//         console.log(result);
+        
+//         res.render('siteDiary', { JobIDData: result });
+//     });
 // });
 
-//login 
+app.get('/siteDiary', function(req, res, next) {
+	
+	db.query("SELECT job_id, job_description_code FROM job_assignment;", function (err, result) {
+				if (err) throw err;
+				console.log(result);
+	res.render('siteDiary', { jobData: result });
+});
+});
+
+
+
+
+
+
+
+
 
 
 app.listen(3000);

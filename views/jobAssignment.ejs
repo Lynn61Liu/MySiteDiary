@@ -67,13 +67,13 @@
 				<!-- <div class="rowwrap"> -->
 				<div class="form-group">
 					<label for="JobCode">Job Description Code</label>
-					:<input type="text" class="form-control" id="JobCode" name="JobCode">
+					:<input type="text" class="form-control" id="JobCode" name="JobCode" required>
 				</div>
 				<div class="form-group">
 					<label for="TeamLeader">Team Leader</label>
 					:
 					<!-- <input type="text" class="form-control" id="TeamLeader" name="TeamLeader"> -->
-					<select name="TeamLeader" id="TeamLeader">
+					<select name="TeamLeader" id="TeamLeader" required>
 						<option value="">--Please choose an Team Leader--</option>
 
 
@@ -91,7 +91,7 @@
 
 					<!-- <input type="text" class="form-control" id="TeamMember" name="TeamMember"> -->
 					<% if (userData.length !=0) { var i=1; userData.forEach(function(data) { %>
-						<input type="checkbox" name="TeamMember" value="<%=data.user_id %>" id="user<%=i%>">
+						<input  type="checkbox" name="TeamMember" value="<%=data.user_id %>" id="user<%=i%>">
 						<label for="user<%=i%>">
 							<%=data.user_id %>: <%=data.user_name %>
 						</label>
@@ -105,29 +105,29 @@
 					<div class="form-group ">
 						<label for="tools">Tools</label>: <br>
 
-						<input type="checkbox" name="tools" value="Saw" id="toolSaw">
-						<label for="toolSaw">Circular Saw</label>
+						<input type="checkbox" name="tools" value="circular Saw" id="circularSaw">
+						<label for="circularSaw">Circular Saw</label>
 
-						<input type="checkbox" name="tools" value="Chisel" id="toolChisel">
-						<label for="toolChisel">Mitre Saw</label>
+						<input type="checkbox" name="tools" value="Mitre Saw" id="MitreSaw">
+						<label for="MitreSaw">Mitre Saw</label>
 
-						<input type="checkbox" name="tools" value="Plane" id="toolPlane">
-						<label for="toolPlane">Framing Nail Gun</label>
+						<input type="checkbox" name="tools" value="Framing Nail Gun" id="NailGun">
+						<label for="NailGun">Framing Nail Gun</label>
 
-						<input type="checkbox" name="tools" value="Drill" id="toolDrill">
-						<label for="toolDrill">Sabre Saw</label>
+						<input type="checkbox" name="tools" value="Sabre Saw" id="SabreSaw">
+						<label for="SabreSaw">Sabre Saw</label>
 
-						<input type="checkbox" name="tools" value="Hammer" id="toolHammer">
-						<label for="toolHammer">Drill</label>
+						<input type="checkbox" name="tools" value="Drill" id="Drill">
+						<label for="Drill">Drill</label>
 
-						<input type="checkbox" name="tools" value="Router" id="toolRouter">
-						<label for="toolRouter">Impact Driver</label>
+						<input type="checkbox" name="tools" value="Impact Driver" id="ImpactDriver">
+						<label for="ImpactDriver">Impact Driver</label>
 
-						<input type="checkbox" name="tools" value="Router" id="toolRouter">
-						<label for="toolRouter">Multi Tool</label>
+						<input type="checkbox" name="tools" value=">Multi Tool" id=">MultiTool">
+						<label for="MultiTool">Multi Tool</label>
 
-						<input type="checkbox" name="tools" value="Router" id="toolRouter">
-						<label for="toolRouter">Angle Grinder</label>
+						<input type="checkbox" name="tools" value="Angle Grinder" id="AngleGrinder">
+						<label for="AngleGrinder">Angle Grinder</label>
 
 
 						<!-- <textarea type="text" class="form-control" id="tools" name="tools"></textarea> -->
@@ -135,42 +135,42 @@
 
 					<div class="form-group">
 						<label for="Materials">Materials:</label><br>
-						<input type="checkbox" name="Materials" value="Wood" id="materialWood">
-						<label for="materialWood">4*2 Timber</label>
+						<input type="checkbox" name="Materials" value="4*2 Timber" id="4Timber">
+						<label for="4Timber">4*2 Timber</label>
 
-						<input type="checkbox" name="Materials" value="Sandpaper" id="materialSandpaper">
-						<label for="materialSandpaper">3*2 Timber</label>
+						<input type="checkbox" name="Materials" value="3*2 Timber" id="3Timber">
+						<label for="3Timber">3*2 Timber</label>
 
-						<input type="checkbox" name="Materials" value="Wood Glue" id="materialWoodGlue">
-						<label for="materialWoodGlue">Ceiling Batten</label>
+						<input type="checkbox" name="Materials" value="Ceiling Batten" id="CeilingBatten">
+						<label for="CeilingBatten">Ceiling Batten</label>
 
-						<input type="checkbox" name="Materials" value="Nails" id="materialNails">
-						<label for="materialNails">90mm Nails</label>
+						<input type="checkbox" name="Materials" value="90mm Nails" id="90mmNails">
+						<label for="90mmNails">90mm Nails</label>
 
-						<input type="checkbox" name="Materials" value="Stain" id="materialStain">
-						<label for="materialStain">65mm Nails</label>
+						<input type="checkbox" name="Materials" value="65mm Nails" id="65mmNails">
+						<label for="65mmNails">65mm Nails</label>
 
-						<input type="checkbox" name="Materials" value="Varnish" id="materialVarnish">
-						<label for="materialVarnish">Timber Weatherboard</label>
+						<input type="checkbox" name="Materials" value="Timber Weatherboard" id="TimberWeatherboard">
+						<label for="TimberWeatherboard">Timber Weatherboard</label>
 
-						<input type="checkbox" name="Materials" value="Varnish" id="materialVarnish">
-						<label for="materialVarnish">Weatherboard</label>
+						<input type="checkbox" name="Materials" value="Weatherboard" id="Weatherboard">
+						<label for="Weatherboard">Weatherboard</label>
 
-						<input type="checkbox" name="Materials" value="Varnish" id="materialVarnish">
-						<label for="materialVarnish">Fiber Cement Weatherboard</label>
+						<input type="checkbox" name="Materials" value="Fiber Cement Weatherboard" id="FiberCementWeatherboard">
+						<label for="FiberCementWeatherboard">Fiber Cement Weatherboard</label>
 
-						<input type="checkbox" name="Materials" value="Varnish" id="materialVarnish">
-						<label for="materialVarnish">plywood</label>
+						<input type="checkbox" name="Materials" value="plywood" id="plywood">
+						<label for="plywood">plywood</label>
 
 					</div>
 
 					<div class="form-group">
 						<label for="TimeStarts">Time Starts</label>
-						:<input type="datetime-local" class="form-control" id="TimeStarts" name="TimeStarts">
+						:<input required type="datetime-local" class="form-control" id="TimeStarts" name="TimeStarts">
 					</div>
 					<div class="form-group">
 						<label for="TimeEnds">Time Ends</label>
-						:<input type="datetime-local" class="form-control" id="TimeEnds" name="TimeEnds">
+						:<input required type="datetime-local" class="form-control" id="TimeEnds" name="TimeEnds">
 					</div>
 				</div>
 
@@ -182,15 +182,15 @@
 					<h3 id="tasktitle">Task</h3>
 					<div class="taskitem">
 						<div class="tasknumber">1</div>
-						<input type="text" class="form-control taskinput" name="task1" id="task1">
+						<input required type="text" class="form-control taskinput" name="task1" id="task1">
 					</div>
 					<div class="taskitem">
 						<div class="tasknumber">2</div>
-						<input type="text" class="form-control taskinput" name="task2" id="task2">
+						<input required type="text" class="form-control taskinput" name="task2" id="task2">
 					</div>
 					<div class="taskitem">
 						<div class="tasknumber">3</div>
-						<input type="text" class="form-control taskinput" name="task3" id="task3">
+						<input required type="text" class="form-control taskinput" name="task3" id="task3">
 					</div>
 
 				</div>
@@ -230,6 +230,8 @@
 
 <!-- replace "Today" with real date -->
 <script>
+
+ console.log('this is job js');
 	var today = new Date();
 
 	var year = today.getFullYear();

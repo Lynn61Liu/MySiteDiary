@@ -16,7 +16,7 @@ body {
 <body>
 	<div class="container">
 		<ul class="nav nav-tabs" role="tablist">
-			<li class="active"><a href=/>Home</a></li>
+			<li class="active"> <a href=/>Home</a> </li>
 			<li><a href=addincidents>Log an Incident</a></li>
 			<li><a href=getincidents>List Incidents</a></li>
 			<li><a href=deaths>Deaths</a></li>
@@ -27,44 +27,20 @@ body {
 	</div>
 	<div>
 <canvas id="myChart" class="center" style="width:100%;max-width:1150px"></canvas>
-
+<% graphData[0] %>
 <script>
 
-<% 
-	console.log(graphData.length);
-	console.log(graphData[0].year);
-	console.log(graphData[0].number);
- %>
- 
- var xyValues = [
-	{x:<%=graphData[0].year%>, y:<%=graphData[0].number%>},
-	{x:<%=graphData[1].year%>, y:<%=graphData[1].number%>},
-    {x:<%=graphData[2].year%>, y:<%=graphData[2].number%>},
-	{x:<%=graphData[3].year%>, y:<%=graphData[3].number%>},
-	{x:<%=graphData[4].year%>, y:<%=graphData[4].number%>},
-	{x:<%=graphData[5].year%>, y:<%=graphData[5].number%>},
-	{x:<%=graphData[6].year%>, y:<%=graphData[6].number%>}
+
+var xyValues = [
+	
 ];
 
+console.log(graphData);
 
-new Chart("myChart", {
-  type: "scatter",
-  data: {
-    datasets: [{
-      pointRadius: 4,
-      pointBackgroundColor: "rgb(0,0,255)",
-      data: xyValues
-    }]
-  },
-  options: {
-    legend: {display: false},
-    scales: {
-      xAxes: [{ticks: {fixedStepSize: 1}}],
-      yAxes: [{ticks: {min: 0, max:100}}],
-    }
-  }
-});
+var shallowCopy = Object.assign({}, graphData);
+console.log(shallowCopy);
 
+ 
 </script>
 </div>
 
