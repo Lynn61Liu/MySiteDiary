@@ -65,7 +65,7 @@ app.get('/signup', function(req, res, next) {
 	var sql = `INSERT INTO users (user_name, email, password) VALUES ("${userName}", "${email}", "${password}")`;
 	db.query(sql, function(err, result) {
 		if (err) throw err;
-		console.log('user inserted');
+		// console.log('user inserted');
 		req.session.username = userName;
 		 res.render('login',{username: userName });
 		// res.render('login');
@@ -84,18 +84,18 @@ app.post('/login', function(req, res, next) {
 	var email = req.body.email;
 	var password = req.body.password;
 	var sql = `SELECT * FROM users WHERE email="${email}" AND password="${password}"`;
-	console.log(sql);//vevify above code excuted
+	// console.log(sql);//vevify above code excuted
 
 	db.query(sql, function(err, result) {
 		if (err) throw err;
 		if (result.length>0) {
-			console.log(result);//verify above code excuted
+			// console.log(result);//verify above code excuted
 
 			var username = result[0].user_name;
 			req.session.username = username;
 			res.render('login',{username: username });
 		} else {
-			console.log("fiald");
+			// console.log("fiald");
 			res.render('login', { loginFailed: true, statusMSG: 'Login Failed. Please check your email and password.'});
 		  }
 	});
@@ -118,39 +118,39 @@ app.get('/contact', function(req, res, next) {
 app.get('/jobAssignment', function(req, res, next) {
 	db.query("SELECT user_name,user_id FROM users;", function (err, result) {
 				if (err) throw err;
-		 		console.log(result);
+		
 	res.render('jobAssignment', { userData: result });
 });
 });
 
+app.post('/jobAssignment', function(req, res, next) {
+//   var job_id=req.body.JobCode;
+  var job_description_code=req.body.JobCode;
+  var team_leader =req.body.TeamLeader;
+  var team_member=req.body.TeamMember;
+  var tools =req.body.tools;
+  var time_starts=req.body.TimeStarts;
+  var time_ends =req.body.TimeEnds;
+  var Materials =req.body.Materials;
+  var task_1=req.body.task1;
+  var task_2 =req.body.task2;
+  var task_3=req.body.task3;
+	console.log(team_member);
+	console.log(tools);
+	console.log(Materials);
+	var sql = `INSERT INTO job_assignment (job_description_code,team_leader,team_member,tools,time_starts,time_ends,Materials,task_1,task_2,task_3) VALUES ("${job_description_code}","${team_leader}","${team_member}","${tools}","${time_starts}","${time_ends}","${Materials}","${task_1}","${task_2}","${task_3}")`;
+	console.log(sql);
+	db.query(sql, function(err, result) {
+ 		if (err) throw err;
+		console.log('job inserted');
+		res.render('jobAssignment', { createStatus: true, statusMSG: 'Successful creation of job Assignmen'});
+		 
+	});
+	
+});
 
-// app.get('/addIncidents', function(req, res, next) {
-// 	res.render('addIncidents', { title: 'Home' });
-// });
- 
-// app.get('/getIncidents', function(req, res){
-// 	db.query("SELECT * FROM incidents", function (err, result) {
-// 		if (err) throw err;
-// 		console.log(result);
-// 		res.render('getIncidents', { title: 'xyz', incidentData: result});
-// 	});
-// });
- 
-// app.get('/deaths', function(req, res){
-// 	db.query("SELECT * FROM deaths", function (err, result) {
-// 		if (err) throw err;
-// 		console.log(result);
-// 		res.render('deaths', { title: 'xyp', deathData: result});
-// 	});
-// });
 
-// app.get('/graph', function(req, res){
-// 	db.query("SELECT * FROM deaths", function (err, result) {
-// 		if (err) throw err;
-// 		console.log(result);
-// 		res.render('graph', { title: 'graph', graphData: result});
-// 	});
-// });
+
 
 // app.post('/addIncidents', function(req, res, next) {
 // 	var beach = req.body.beach;

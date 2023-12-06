@@ -59,14 +59,9 @@
 		</div>
 
 
-
-
-
-
-
-
-		<% if (username) { %>
-			<form class="jobAssignmentForm">
+		<% if (username) {  
+			if (!createStatus){%>
+			<form class="jobAssignmentForm" method="post">
 
 
 
@@ -97,7 +92,7 @@
 
 					<!-- <input type="text" class="form-control" id="TeamMember" name="TeamMember"> -->
 					<% if (userData.length !=0) { var i=1; userData.forEach(function(data) { %>
-						<input type="checkbox" name="selectedUsers" value="<%=data.user_id %>" id="user<%=i%>">
+						<input type="checkbox" name="TeamMember" value="<%=data.user_id %>" id="user<%=i%>">
 						<label for="user<%=i%>">
 							<%=data.user_id %>: <%=data.user_name %>
 						</label>
@@ -189,7 +184,23 @@
 				</div>
 
 			</form>
+
 			<% } else { %>
+				<div class="feedback">
+					<% var createStatus=createStatus || false; %>
+						<!-- <% var username=username ; %> -->
+
+							<% if (createStatus) { %>
+								<p id="StatusMSG">
+									<%= statusMSG %>
+								</p>
+
+								<% } %>
+				</div>
+
+
+				<% } %>	
+		<% } else { %>
 				<div>
 					<p> please Log in account.</p>
 				</div>
