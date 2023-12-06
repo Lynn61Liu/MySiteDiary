@@ -59,8 +59,7 @@
 		</div>
 
 
-		<% if (username) {  
-			if (!createStatus){%>
+		<% if (username) { if (!createStatus){%>
 			<form class="jobAssignmentForm" method="post">
 
 
@@ -107,25 +106,64 @@
 						<label for="tools">Tools</label>: <br>
 
 						<input type="checkbox" name="tools" value="Saw" id="toolSaw">
-						<label for="toolSaw">Saw</label>
+						<label for="toolSaw">Circular Saw</label>
 
 						<input type="checkbox" name="tools" value="Chisel" id="toolChisel">
-						<label for="toolChisel">Chisel</label>
+						<label for="toolChisel">Mitre Saw</label>
 
 						<input type="checkbox" name="tools" value="Plane" id="toolPlane">
-						<label for="toolPlane">Plane</label>
+						<label for="toolPlane">Framing Nail Gun</label>
 
 						<input type="checkbox" name="tools" value="Drill" id="toolDrill">
-						<label for="toolDrill">Drill</label>
+						<label for="toolDrill">Sabre Saw</label>
 
 						<input type="checkbox" name="tools" value="Hammer" id="toolHammer">
-						<label for="toolHammer">Hammer</label>
+						<label for="toolHammer">Drill</label>
 
 						<input type="checkbox" name="tools" value="Router" id="toolRouter">
-						<label for="toolRouter">Router</label>
+						<label for="toolRouter">Impact Driver</label>
+
+						<input type="checkbox" name="tools" value="Router" id="toolRouter">
+						<label for="toolRouter">Multi Tool</label>
+
+						<input type="checkbox" name="tools" value="Router" id="toolRouter">
+						<label for="toolRouter">Angle Grinder</label>
+
 
 						<!-- <textarea type="text" class="form-control" id="tools" name="tools"></textarea> -->
 					</div>
+
+					<div class="form-group">
+						<label for="Materials">Materials:</label><br>
+						<input type="checkbox" name="Materials" value="Wood" id="materialWood">
+						<label for="materialWood">4*2 Timber</label>
+
+						<input type="checkbox" name="Materials" value="Sandpaper" id="materialSandpaper">
+						<label for="materialSandpaper">3*2 Timber</label>
+
+						<input type="checkbox" name="Materials" value="Wood Glue" id="materialWoodGlue">
+						<label for="materialWoodGlue">Ceiling Batten</label>
+
+						<input type="checkbox" name="Materials" value="Nails" id="materialNails">
+						<label for="materialNails">90mm Nails</label>
+
+						<input type="checkbox" name="Materials" value="Stain" id="materialStain">
+						<label for="materialStain">65mm Nails</label>
+
+						<input type="checkbox" name="Materials" value="Varnish" id="materialVarnish">
+						<label for="materialVarnish">Timber Weatherboard</label>
+
+						<input type="checkbox" name="Materials" value="Varnish" id="materialVarnish">
+						<label for="materialVarnish">Weatherboard</label>
+
+						<input type="checkbox" name="Materials" value="Varnish" id="materialVarnish">
+						<label for="materialVarnish">Fiber Cement Weatherboard</label>
+
+						<input type="checkbox" name="Materials" value="Varnish" id="materialVarnish">
+						<label for="materialVarnish">plywood</label>
+
+					</div>
+
 					<div class="form-group">
 						<label for="TimeStarts">Time Starts</label>
 						:<input type="datetime-local" class="form-control" id="TimeStarts" name="TimeStarts">
@@ -136,27 +174,7 @@
 					</div>
 				</div>
 
-				<div class="form-group">
-					<label for="Materials">Materials:</label><br>
-					<input type="checkbox" name="Materials" value="Wood" id="materialWood">
-					<label for="materialWood">Wood</label>
-					
-					<input type="checkbox" name="Materials" value="Sandpaper" id="materialSandpaper">
-					<label for="materialSandpaper">Sandpaper</label>
-					
-					<input type="checkbox" name="Materials" value="Wood Glue" id="materialWoodGlue">
-					<label for="materialWoodGlue">Wood Glue</label>
-					
-					<input type="checkbox" name="Materials" value="Nails" id="materialNails">
-					<label for="materialNails">Nails</label>
-					
-					<input type="checkbox" name="Materials" value="Stain" id="materialStain">
-					<label for="materialStain">Stain</label>
-					
-					<input type="checkbox" name="Materials" value="Varnish" id="materialVarnish">
-					<label for="materialVarnish">Varnish</label>
-					
-				</div>
+
 
 				<!-- </div> -->
 
@@ -190,22 +208,22 @@
 					<% var createStatus=createStatus || false; %>
 						<!-- <% var username=username ; %> -->
 
-							<% if (createStatus) { %>
-								<p id="StatusMSG">
-									<%= statusMSG %>
-								</p>
+						<% if (createStatus) { %>
+							<p id="StatusMSG">
+								<%= statusMSG %>
+							</p>
 
-								<% } %>
+							<% } %>
 				</div>
 
-
-				<% } %>	
-		<% } else { %>
-				<div>
-					<p> please Log in account.</p>
-				</div>
 
 				<% } %>
+					<% } else { %>
+						<div>
+							<p> please Log in account.</p>
+						</div>
+
+						<% } %>
 	</div>
 
 </body>
