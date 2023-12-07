@@ -69,7 +69,7 @@
 						<% if(jobData.length !=0) {var i=1; jobData.forEach( function(data) { %>
 							<option value="<%=data.job_id %>">
 								<%=data.job_id %>
-									<!-- :<%=data.job_description_code %> -->
+							:<%=data.job_description_code %>
 							</option>
 							<% i++; }) %>
 								<%}%>
@@ -81,14 +81,27 @@
 
 
 				</div>
-				<% if (true) { %>
 
-
-					<p>Job ID: </p>
-					<p>Job Description Code:</p>
-
-
-					<% } %>
+				<% if(jobData.length !=0) {var i=1; jobData.forEach( function(data) { %>
+					<section class="jobItem hidden" id='<%=data.job_id %>'  >
+						<div class="form-group">
+							<label for="jdc">Job Description Code</label>
+							:<input type="text" class="form-control" placeholder="<%=data.job_description_code %>" disabled>
+						</div>
+						<div class="form-group">
+							<label for="tools">Tools</label>
+							:<input type="text" class="form-control" placeholder="<%=data.tools %> " disabled>
+						</div>
+						<div class="form-group">
+							<label for="Materials">Materials</label>
+							:<input type="text" class="form-control" placeholder="<%=data.Materials %> " disabled>
+						</div>
+						
+					</section>
+		
+					
+					<% i++; }) %>
+						<%}%>
 						<div class="form-group">
 							<label for="checkInTime">Check In Time</label>
 							:<input type="datetime-local" class="form-control" id="checkInTime" name="checkInTime">
@@ -148,22 +161,28 @@
 	var formattedDate = year + '-' + (month < 10 ? '0' : '') + month + '-' + (day < 10 ? '0' : '') + day;
 	console.log(formattedDate);
 	document.querySelector("#pageToday").innerHTML = formattedDate;
-</script>
-<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+	var jobList=document.querySelectorAll(".jobItem");
+	console.log(jobList);
 
-<!-- When select Job_ID from dropdown menue,  post "job_id" to server -->
-<script>
-	$(document).ready(function () {
-		$('#JobID').change(function () {
-			var selectedJobId = $(this).val();
-			if (selectedJobId !== '') {
-				// Send the selected job_id to the server using AJAX
-				$.post('/siteDiary', { job_id: selectedJobId }, function (response) {
-					console.log(response); // Log the server's response if needed
-				});
-			}
-		});
+	//select ID to show job info
+	document.querySelector("#JobID").addEventListener("change",e=>{
+		console.log(e.target.value);
+		var selectID=e.target.value;
+
+		jobList.forEach(item=>{
+			item.classList.add("hidden")
+		})
+
+		jobList.forEach(item=>{
+			if(item.id==selectID){
+			item.classList.remove("hidden");}
+		})
+
+		
 	});
+
 </script>
+
+
 
 </html>
