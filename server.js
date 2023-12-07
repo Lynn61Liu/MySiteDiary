@@ -134,10 +134,11 @@ app.post('/jobAssignment', function(req, res, next) {
   var task_1=req.body.task1;
   var task_2 =req.body.task2;
   var task_3=req.body.task3;
+  var address=req.body.address;
 	console.log(team_member);
 	console.log(tools);
 	console.log(Materials);
-	var sql = `INSERT INTO job_assignment (job_description_code,team_leader,team_member,tools,time_starts,time_ends,Materials,task_1,task_2,task_3) VALUES ("${job_description_code}","${team_leader}","${team_member}","${tools}","${time_starts}","${time_ends}","${Materials}","${task_1}","${task_2}","${task_3}")`;
+	var sql = `INSERT INTO job_assignment (job_description_code,team_leader,team_member,tools,time_starts,time_ends,Materials,task_1,task_2,task_3,address) VALUES ("${job_description_code}","${team_leader}","${team_member}","${tools}","${time_starts}","${time_ends}","${Materials}","${task_1}","${task_2}","${task_3}","${address}")`;
 	console.log(sql);
 	db.query(sql, function(err, result) {
  		if (err) throw err;
