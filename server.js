@@ -101,9 +101,7 @@ app.post('/login', function(req, res, next) {
 	});
 });
 
-app.get('/siteDiary', function(req, res, next) {
-	res.render('siteDiary', { title: 'siteDiary' });
-});
+
 
 app.get('/summary', function(req, res, next) {
 	res.render('summary', { title: 'summary' });
@@ -150,25 +148,38 @@ app.post('/jobAssignment', function(req, res, next) {
 });
 
 
-
-// app.get('/siteDiary', function(req, res, next) {
-//     db.query("SELECT job_id, job_description_code FROM job_assignment;", function (err, result) {
-//         if (err) throw err;
-        
-//         console.log(result);
-        
-//         res.render('siteDiary', { JobIDData: result });
 //     });
 // });
 
 app.get('/siteDiary', function(req, res, next) {
 	
-	db.query("SELECT job_id, job_description_code FROM job_assignment;", function (err, result) {
+	db.query("SELECT * FROM job_assignment;", function (err, result) {
 				if (err) throw err;
 				console.log(result);
 	res.render('siteDiary', { jobData: result });
+				
+	res.render('siteDiary', { jobData: result,selected:false });
+	
+
 });
 });
+
+        // Second SQL query
+        db.query(`SELECT * FROM job_assignment where job_id="${selectedJobId}";`, function (err, result2) {
+            if (err) throw err;
+
+            console.log('jobData:', result1);
+            console.log('selectedData:', result2);
+
+            res.render('siteDiary', {
+               // selectedData: result2, 
+                selected: true, 
+				jobData: result1, 
+            });
+        });
+    });
+});
+
 
 
 
