@@ -148,21 +148,23 @@ app.post('/jobAssignment', function(req, res, next) {
 });
 
 
-//     });
-// });
-
 app.get('/siteDiary', function(req, res, next) {
-	
 	db.query("SELECT * FROM job_assignment;", function (err, result) {
 				if (err) throw err;
 				console.log(result);
-	res.render('siteDiary', { jobData: result });
 				
 	res.render('siteDiary', { jobData: result,selected:false });
 	
 
 });
 });
+
+app.post('/siteDiary', function(req, res, next) {
+    var selectedJobId = req.body.job_id;
+	console.log('selectedJobId:', selectedJobId);
+    // First SQL query
+    db.query("SELECT job_id, job_description_code FROM job_assignment;", function (err, result1) {
+        if (err) throw err;
 
         // Second SQL query
         db.query(`SELECT * FROM job_assignment where job_id="${selectedJobId}";`, function (err, result2) {
