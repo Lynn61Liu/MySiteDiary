@@ -66,13 +66,13 @@
 					<label for="JobID">Job ID:</label>
 					<select name="JobID" id="JobID" required>
 						<option value="">--Please choose an JobID--</option>
-					        <% if(jobData.length !=0) {var i=1; jobData.forEach( function(data) { %>
-                            <option value="<%=data.job_id %>">
-                                <%=data.job_id %>
-								<!-- :<%=data.job_description_code %> -->
-                            </option>
-                            <% i++; }) %>
-                                <%}%>
+						<% if(jobData.length !=0) {var i=1; jobData.forEach( function(data) { %>
+							<option value="<%=data.job_id %>">
+								<%=data.job_id %>
+									<!-- :<%=data.job_description_code %> -->
+							</option>
+							<% i++; }) %>
+								<%}%>
 
 					</select>
 
@@ -82,51 +82,52 @@
 
 				</div>
 				<% if (true) { %>
-				
-							
-							<p>Job ID: </p>
-							<p>Job Description Code:</p>
-							
-						
+
+
+					<p>Job ID: </p>
+					<p>Job Description Code:</p>
+
+
 					<% } %>
-				<div class="form-group">
-					<label for="checkInTime">Check In Time</label>
-					:<input type="datetime-local" class="form-control" id="checkInTime" name="checkInTime">
-				</div>
-				<div class="form-group">
-					<label for="checkOutTime">Check Out Time</label>
-					:<input type="datetime-local" class="form-control" id="checkOutTime" name="checkOutTime">
-				</div>
-				<div class="form-group">
-					<label for="address">Site Address</label>
-					:<input type="text" class="form-control" id="address" name="address" >
-				</div>
-				<div class="form-group">
-					<label for="weather">Weather</label>
-					:<input type="text" class="form-control" id="weather" name="weather">
-				</div>
-				<div class="form-group">
-					<label for="Note">Notes</label>
-					:<textarea type="text" class="form-control" id="Note" name="notes"></textarea>
-				</div>
-				
-				
-				<div class="form-group">
-					<label for="photos">Photos or Videos</label>
-					:<input type="file" class="form-control" id="Photos" name="Photos" accept="image/*, video/*">
-				</div>
-				<!-- </div> -->
+						<div class="form-group">
+							<label for="checkInTime">Check In Time</label>
+							:<input type="datetime-local" class="form-control" id="checkInTime" name="checkInTime">
+						</div>
+						<div class="form-group">
+							<label for="checkOutTime">Check Out Time</label>
+							:<input type="datetime-local" class="form-control" id="checkOutTime" name="checkOutTime">
+						</div>
+						<div class="form-group">
+							<label for="address">Site Address</label>
+							:<input type="text" class="form-control" id="address" name="address">
+						</div>
+						<div class="form-group">
+							<label for="weather">Weather</label>
+							:<input type="text" class="form-control" id="weather" name="weather">
+						</div>
+						<div class="form-group">
+							<label for="Note">Notes</label>
+							:<textarea type="text" class="form-control" id="Note" name="notes"></textarea>
+						</div>
 
-				<div class="form-group ">
-					<label for="JobDone">Job I Have Done</label>
-					:<textarea class="form-control" id="JobDone" name="JobDone"></textarea>
-				</div>
-				
-				<div class="submitwrap">
-					<button type="submit" class="btn btn-primary" id="diarysubmit">Submit</button>
 
-				</div>
-				
+						<div class="form-group">
+							<label for="photos">Photos or Videos</label>
+							:<input type="file" class="form-control" id="Photos" name="Photos"
+								accept="image/*, video/*">
+						</div>
+						<!-- </div> -->
+
+						<div class="form-group ">
+							<label for="JobDone">Job I Have Done</label>
+							:<textarea class="form-control" id="JobDone" name="JobDone"></textarea>
+						</div>
+
+						<div class="submitwrap">
+							<button type="submit" class="btn btn-primary" id="diarysubmit">Submit</button>
+
+						</div>
+
 			</form>
 			<% } else { %>
 				<DIV>
@@ -149,18 +150,20 @@
 	document.querySelector("#pageToday").innerHTML = formattedDate;
 </script>
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+<!-- When select Job_ID from dropdown menue,  post "job_id" to server -->
 <script>
-    $(document).ready(function() {
-        $('#JobID').change(function() {
-            var selectedJobId = $(this).val();
-            if (selectedJobId !== '') {
-                // Send the selected job_id to the server using AJAX
-                $.post('/siteDiary', { job_id: selectedJobId }, function(response) {
-                    console.log(response); // Log the server's response if needed
-                });
-            }
-        });
-    });
+	$(document).ready(function () {
+		$('#JobID').change(function () {
+			var selectedJobId = $(this).val();
+			if (selectedJobId !== '') {
+				// Send the selected job_id to the server using AJAX
+				$.post('/siteDiary', { job_id: selectedJobId }, function (response) {
+					console.log(response); // Log the server's response if needed
+				});
+			}
+		});
+	});
 </script>
 
 </html>

@@ -112,7 +112,7 @@ app.get('/contact', function(req, res, next) {
 
 
 
-
+//Job Assignment Page with no parameters
 app.get('/jobAssignment', function(req, res, next) {
 	db.query("SELECT user_name,user_id FROM users;", function (err, result) {
 				if (err) throw err;
@@ -121,6 +121,7 @@ app.get('/jobAssignment', function(req, res, next) {
 });
 });
 
+//Job Assignment Page with parameters
 app.post('/jobAssignment', function(req, res, next) {
 //   var job_id=req.body.JobCode;
   var job_description_code=req.body.JobCode;
@@ -147,7 +148,7 @@ app.post('/jobAssignment', function(req, res, next) {
 	
 });
 
-
+//Site Diary Page with no parameters
 app.get('/siteDiary', function(req, res, next) {
 	db.query("SELECT * FROM job_assignment;", function (err, result) {
 				if (err) throw err;
@@ -159,6 +160,8 @@ app.get('/siteDiary', function(req, res, next) {
 });
 });
 
+
+//Site Diary Page with parameters
 app.post('/siteDiary', function(req, res, next) {
     var selectedJobId = req.body.job_id;
 	console.log('selectedJobId:', selectedJobId);
