@@ -135,9 +135,6 @@ app.post('/jobAssignment', function(req, res, next) {
   var task_2 =req.body.task2;
   var task_3=req.body.task3;
   var address=req.body.address;
-	console.log(team_member);
-	console.log(tools);
-	console.log(Materials);
 	var sql = `INSERT INTO job_assignment (job_description_code,team_leader,team_member,tools,time_starts,time_ends,Materials,task_1,task_2,task_3,address) VALUES ("${job_description_code}","${team_leader}","${team_member}","${tools}","${time_starts}","${time_ends}","${Materials}","${task_1}","${task_2}","${task_3}","${address}")`;
 	console.log(sql);
 	db.query(sql, function(err, result) {
@@ -164,27 +161,25 @@ app.get('/siteDiary', function(req, res, next) {
 
 //Site Diary Page with parameters
 app.post('/siteDiary', function(req, res, next) {
-    var selectedJobId = req.body.job_id;
-	console.log('selectedJobId:', selectedJobId);
-    // First SQL query
-    db.query("SELECT job_id, job_description_code FROM job_assignment;", function (err, result1) {
-        if (err) throw err;
-
-        // Second SQL query
-        db.query(`SELECT * FROM job_assignment where job_id="${selectedJobId}";`, function (err, result2) {
-            if (err) throw err;
-
-            console.log('jobData:', result1);
-            console.log('selectedData:', result2);
-
-            res.render('siteDiary', {
-               // selectedData: result2, 
-                selected: true, 
-				jobData: result1, 
-            });
-        });
-    });
-});
+	//   var job_id=req.body.JobCode;
+	var worker =req.body.username;
+	var job_id =req.body.JobID;
+	var check_in_time =req.body.checkInTime;
+	var check_out_time =req.body.checkOutTime;
+	var weather=req.body.weather;
+	var notes=req.body.notes;
+	var photos_videos=req.body.Photos;
+	var job_i_have_done=req.body.JobDone;
+		var sql = `INSERT INTO site_diary (job_id,check_in_time,check_out_time,worker,weather,notes,photos_videos,job_i_have_done) VALUES ("${job_id}","${check_in_time}","${check_out_time}","${worker}","${weather}","${notes}","${photos_videos}","${job_i_have_done}")`;
+		console.log(sql);
+		db.query(sql, function(err, result) {
+			 if (err) throw err;
+			console.log('SITE DIARY inserted');
+			res.render('siteDiary', { createStatus: true, statusMSG: 'Successful creation of site Diary'});
+			 
+		});
+		
+	});
 
 
 
